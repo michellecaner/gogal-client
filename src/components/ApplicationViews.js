@@ -1,7 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { Register } from "./auth/Register"
 import { Home } from "./Home"
+import { TripCard } from "./trip/TripCard"
 
 export const ApplicationViews = () => {
   return <>
@@ -11,7 +11,10 @@ export const ApplicationViews = () => {
       }}>
            <Route exact path={["/"]}>
               <Home />
-          </Route>
+           </Route>
+           <Route exact path={["/trips"]}>
+              <TripCard />
+           </Route>
          
       </main>
   </>
