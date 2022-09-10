@@ -40,7 +40,7 @@ export const Register = () => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("gg_token", res.token)
-                        // history.push("/")
+                        history.push("/")
                     }
                 })
         } else {
@@ -93,11 +93,11 @@ export const Register = () => {
                 <fieldset style={{
                     textAlign: "center"
                 }}>
-                    <button className="btn btn-1 btn-sep icon-send" type="submit" onClick={alert("You've registered")}>Register</button>
+                    <button className="btn btn-1 btn-sep icon-send" type="submit">Register</button>
                 </fieldset>
             </form>
             <section className="link--register">
-                {/* Already registered? <Link to="/login">Login</Link> */}
+                Already registered? <Link to="/login">Login</Link>
             </section>
         </main>
     )
