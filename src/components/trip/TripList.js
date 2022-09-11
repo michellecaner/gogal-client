@@ -22,7 +22,9 @@ export const TripList = () => {
 
   return (
     <div className="container-cards">
-      {trips.map(trip => <TripCard key={trip.id} trip={trip}/>)}    
+      {trips.map(trip => <TripCard 
+        key={trip.id} 
+        trip={trip}/>)}    
     </div>
   );
 }

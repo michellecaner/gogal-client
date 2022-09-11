@@ -1,0 +1,44 @@
+import React, { useState, useEffect } from "react";
+import { getTripById, deleteTrip, getAllTrips } from "./TripManager";
+import "./TripDetail.css"
+import { useParams, useHistory } from "react-router-dom";
+
+export const TripDetail = () => {
+  const [trip, setTrip] = useState({ title: "", image_url_one: "", image_url_two: "", image_url_three: "", country: "", city: "", from_date: "", to_date: "", content: "" })
+
+
+  const { tripId } = useParams()
+  const history = useHistory()
+
+  useEffect(() => {
+    getTripById(tripId).then(trip => {
+      setTrip(trip)
+    })
+  }, [tripId])
+
+  const handleDeleteTrip = id => {
+    deleteTrip(id)
+      .then(() => getAllTrips().then(setTrip));
+  };
+
+  return (
+    <div className="trip-details-container">
+      <div className="trip-img-wrapper">
+        <img className="trip-img" src={trip.image_url_one} />
+        <img className="trip-img" src={trip.image_url_two} />
+        <img className="trip-img" src={trip.image_url_three} />
+      </div>
+      <h3 className="trip-title">{trip.title}</h3>
+      <div className="trip-details">
+        <p className="trip-country">Country: {trip.country}</p>
+        <p className="trip-city">City: {trip.city}</p>
+        <p className="trip-from-date">From Date: {trip.from_date}</p>
+        <p className="trip-to-date">To Date: {trip.to_date}</p>
+        <p className="trip-content">{trip.content}</p>
+      </div>
+      <button type="button" onClick={() => handleDeleteTrip(trip.id)}>
+        Delete
+      </button>
+    </div>
+  )
+}

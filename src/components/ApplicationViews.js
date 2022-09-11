@@ -2,6 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { Home } from "./Home"
 import { TripList } from "./trip/TripList"
+import { TripDetail } from "./trip/TripDetail"
 
 export const ApplicationViews = () => {
   return <>
@@ -14,6 +15,9 @@ export const ApplicationViews = () => {
            </Route>
            <Route exact path={["/trips"]}>
               <TripList />
+           </Route>
+           <Route exact path={["/trips/:tripId"]}>
+              <TripDetail/>
            </Route>
          
       </main>
