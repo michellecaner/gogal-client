@@ -14,17 +14,15 @@ export const TripList = () => {
     })
   }
 
-// The useEffect hook accepts two parameters: a function and an array. The function parameter is where you place the code that interacts with an external resource. The array parameter is used to control when the function parameter is executed.
-
-// The function argument to useEffect tells React to call the getTrips() function (that will fetch data from our API). The empty array argument tells React to call the function on the first render of the component.
-
   useEffect(() => {
     getTrips();
   }, [])
 
+ // Finally we use .map() to "loop over" the trips array to show a list of animal cards
+
   return (
     <div className="container-cards">
-      {trips.map(trip => <TripCard key={trip.id} />)}    
+      {trips.map(trip => <TripCard key={trip.id} trip={trip}/>)}    
     </div>
   );
 }
