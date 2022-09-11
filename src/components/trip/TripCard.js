@@ -9,8 +9,10 @@ export const TripCard = ({ trip }) => {
         <h3><span className="card-trip-title">
           {trip.title}
         </span></h3>
-        <button>Let's Go!</button>
+        <Link to={`/trips/${trip.id}`}>
+          <button>Let's Go!</button>
+        </Link>      
       </div>
     </div>
-  );
+  )
 }

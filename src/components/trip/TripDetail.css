@@ -1,0 +1,13 @@
+#root > .card {
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.trip-img-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.trip-img {
+  width: 15rem
+}

@@ -45,8 +45,6 @@ export const deleteTrip = (tripId) => {
       method: "DELETE",
       headers:{
           "Authorization": `Token ${localStorage.getItem("gg_token")}`
-      }
-      
+      }  
   })
-  .then(res => res.json())
 }
