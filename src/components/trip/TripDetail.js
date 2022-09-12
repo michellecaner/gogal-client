@@ -4,7 +4,7 @@ import "./TripDetail.css"
 import { useParams, useHistory } from "react-router-dom";
 
 export const TripDetail = () => {
-  const [trip, setTrip] = useState({ title: "", image_url_one: "", image_url_two: "", image_url_three: "", country: "", city: "", from_date: "", to_date: "", content: "" })
+  const [trip, setTrip] = useState({ title: "", image_url_one: "", image_url_two: "", image_url_three: "", country: "", city: "", from_date: "", to_date: "", content: "", categories: "", tags: "" })
   const [isLoading, setIsLoading] = useState(true);
 
   const { tripId } = useParams()
@@ -38,6 +38,8 @@ export const TripDetail = () => {
         <p className="trip-from-date">From Date: {trip.from_date}</p>
         <p className="trip-to-date">To Date: {trip.to_date}</p>
         <p className="trip-content">{trip.content}</p>
+        <p className="trip-categories">{trip.categories.label}</p>
+        <p className="trip-tags">{trip.tags.label}</p>
       </div>
       <button type="button" onClick={() => handleDeleteTrip(trip.id)}>
         Delete
@@ -45,3 +47,5 @@ export const TripDetail = () => {
     </div>
   )
 }
+
+//How do I access categories???
