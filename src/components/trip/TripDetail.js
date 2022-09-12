@@ -5,7 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 
 export const TripDetail = () => {
   const [trip, setTrip] = useState({ title: "", image_url_one: "", image_url_two: "", image_url_three: "", country: "", city: "", from_date: "", to_date: "", content: "" })
-
+  const [isLoading, setIsLoading] = useState(true);
 
   const { tripId } = useParams()
   const history = useHistory()
@@ -13,12 +13,15 @@ export const TripDetail = () => {
   useEffect(() => {
     getTripById(tripId).then(trip => {
       setTrip(trip)
+      setIsLoading(false)
     })
   }, [tripId])
 
-  const handleDeleteTrip = id => {
-    deleteTrip(id)
-      .then(() => getAllTrips().then(setTrip));
+  const handleDeleteTrip = () => {
+    setIsLoading(true)
+    deleteTrip(trip.id).then(() => {
+      history.push("/trips");
+    });
   };
 
   return (

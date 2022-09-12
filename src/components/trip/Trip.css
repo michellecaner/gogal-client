@@ -32,3 +32,8 @@
 .card button:hover {
   background-color: darkblue;
 }
+
+button:disabled,
+button:disabled:hover {
+  background-color: lightgray;
+}
