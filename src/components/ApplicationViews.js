@@ -14,14 +14,14 @@ export const ApplicationViews = () => {
            <Route exact path={["/"]}>
               <Home />
            </Route>
-           <Route exact path={["/trips"]}>
+           <Route exact path="/trips">
               <TripList />
            </Route>
-           <Route exact path={["/trips/:tripId"]}>
-              <TripDetail/>
-           </Route>
-           <Route exact path={["/trips/create"]}>
+           <Route exact path="/trips/create">
               <TripForm />
+           </Route>
+           <Route exact path="/trips/:tripId(\d+)">
+              <TripDetail/>
            </Route>
       </main>
   </>
