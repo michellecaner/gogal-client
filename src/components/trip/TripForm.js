@@ -32,15 +32,15 @@ export const TripForm = () => {
         .then(updatedTrip => {
           setCurrentTrip({
             id: tripId,
-            title: currentTrip.title,
-            image_url_one: currentTrip.image_url_one,
-            image_url_two: currentTrip.image_url_two,
-            image_url_three: currentTrip.image_url_three,
-            country: currentTrip.country,
-            city: currentTrip.city,
-            from_date: currentTrip.from_date,
-            to_date: currentTrip.to_date,
-            content: currentTrip.content,
+            title: updatedTrip.title,
+            image_url_one: updatedTrip.image_url_one,
+            image_url_two: updatedTrip.image_url_two,
+            image_url_three: updatedTrip.image_url_three,
+            country: updatedTrip.country,
+            city: updatedTrip.city,
+            from_date: updatedTrip.from_date,
+            to_date: updatedTrip.to_date,
+            content: updatedTrip.content,
           })
           console.log(updatedTrip)
         })
@@ -66,7 +66,7 @@ export const TripForm = () => {
     if (currentTrip.title === "") {
       window.alert("Please enter a trip title!")
     } else if (tripId) {
-      updateTrip(tripId, currentTrip)
+      updateTrip(currentTrip)
         .then(() => history.push("/trips"))
     } else {
       createTrip(currentTrip)

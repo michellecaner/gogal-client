@@ -24,6 +24,9 @@ export const ApplicationViews = () => {
            <Route exact path="/trips/:tripId(\d+)">
               <TripDetail/>
            </Route>
+           <Route exact path="/trips/edit/:tripId(\d+)">
+              <TripForm/>
+           </Route>
            <Route exact path="/categories">
               <CategoryList />
            </Route>
