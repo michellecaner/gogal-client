@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { createTrip } from './TripManager';
+import { useHistory, useParams } from 'react-router-dom';
+import { createTrip, getTripById, updateTrip } from './TripManager';
 import "./TripForm.css"
 
 export const TripForm = () => {
@@ -15,16 +15,41 @@ export const TripForm = () => {
     city: "",
     from_date: "",
     to_date: "",
-    content: ""
-    // categories: "", 
-    // tags: ""
+    content: "",
+    categories: [1, 4, 8], 
+    tags: [7, 2, 6]
   })
 
   const [isLoading, setIsLoading] = useState(false);
 
   const history = useHistory()
+  const { tripId } = useParams()
+
+  useEffect(() => {
+    console.log("this is the trip id", tripId)
+    if (tripId) {
+      getTripById(parseInt(tripId))
+        .then(updatedTrip => {
+          setCurrentTrip({
+            id: tripId,
+            title: currentTrip.title,
+            image_url_one: currentTrip.image_url_one,
+            image_url_two: currentTrip.image_url_two,
+            image_url_three: currentTrip.image_url_three,
+            country: currentTrip.country,
+            city: currentTrip.city,
+            from_date: currentTrip.from_date,
+            to_date: currentTrip.to_date,
+            content: currentTrip.content,
+          })
+          console.log(updatedTrip)
+        })
+    }
+  }, [])
+
 
   const changeTripState = (domEvent) => {
+    console.log("you triggered change state")
     const newTrip = { ...currentTrip }
     let selectedVal = domEvent.target.value
     if (domEvent.target.id.includes("Id")) {
@@ -32,12 +57,26 @@ export const TripForm = () => {
     }
     newTrip[domEvent.target.name] = selectedVal
     setCurrentTrip(newTrip)
-    console.log("you hit your change state")
+    console.log(newTrip)
+  }
+
+  const handleClickSaveTrip = (event) => {
+    event.preventDefault()
+
+    if (currentTrip.title === "") {
+      window.alert("Please enter a trip title!")
+    } else if (tripId) {
+      updateTrip(tripId, currentTrip)
+        .then(() => history.push("/trips"))
+    } else {
+      createTrip(currentTrip)
+        .then(() => { history.push("/trips") })
+    }
   }
 
   return (
     <form className="tripForm">
-      <h2 className="tripForm__title">Create New Trip</h2>
+      <h2 className="tripForm__title">{tripId ? "Edit Trip" : "Create New Trip"}</h2>
       <fieldset>
         <div className="form-group">
           <label htmlFor="title">Title: </label>
@@ -119,6 +158,29 @@ export const TripForm = () => {
           />
         </div>
       </fieldset>
+      <button type="submit"
+                onClick={evt => {
+                    // Prevent form from being submitted
+                    evt.preventDefault()
+
+                    // This is where the front end connects to the back end via naming conventions
+                    const trip = {
+                        title: currentTrip.title,
+                        image_url_one: currentTrip.image_url_one,
+                        image_url_two: currentTrip.image_url_two,
+                        image_url_three: currentTrip.image_url_three,
+                        country: currentTrip.country,
+                        city: currentTrip.city,
+                        from_date: currentTrip.from_date,
+                        to_date: currentTrip.to_date,
+                        content: currentTrip.content
+                    }
+
+                    // Send POST request to your API
+                    createTrip(trip)
+                        .then(() => history.push("/trips"))
+                }}
+                className="btn btn-primary">Create</button>
     </form>
   )
 
