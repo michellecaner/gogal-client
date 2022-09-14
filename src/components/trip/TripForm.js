@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { createTrip } from './TripManager';
+import { useHistory, useParams } from 'react-router-dom';
+import { createTrip, getTripById, updateTrip } from './TripManager';
 import "./TripForm.css"
 
 export const TripForm = () => {
@@ -23,6 +23,30 @@ export const TripForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const history = useHistory()
+  const { tripId } = useParams()
+
+  useEffect(() => {
+    console.log("this is the trip id", tripId)
+    if (tripId) {
+      getTripById(parseInt(tripId))
+        .then(updatedTrip => {
+          setCurrentTrip({
+            id: tripId,
+            title: currentTrip.title,
+            image_url_one: currentTrip.image_url_one,
+            image_url_two: currentTrip.image_url_two,
+            image_url_three: currentTrip.image_url_three,
+            country: currentTrip.country,
+            city: currentTrip.city,
+            from_date: currentTrip.from_date,
+            to_date: currentTrip.to_date,
+            content: currentTrip.content,
+          })
+          console.log(updatedTrip)
+        })
+    }
+  }, [])
+
 
   const changeTripState = (domEvent) => {
     console.log("you triggered change state")
@@ -36,9 +60,23 @@ export const TripForm = () => {
     console.log(newTrip)
   }
 
+  const handleClickSaveTrip = (event) => {
+    event.preventDefault()
+
+    if (currentTrip.title === "") {
+      window.alert("Please enter a trip title!")
+    } else if (tripId) {
+      updateTrip(tripId, currentTrip)
+        .then(() => history.push("/trips"))
+    } else {
+      createTrip(currentTrip)
+        .then(() => { history.push("/trips") })
+    }
+  }
+
   return (
     <form className="tripForm">
-      <h2 className="tripForm__title">Create New Trip</h2>
+      <h2 className="tripForm__title">{tripId ? "Edit Trip" : "Create New Trip"}</h2>
       <fieldset>
         <div className="form-group">
           <label htmlFor="title">Title: </label>
