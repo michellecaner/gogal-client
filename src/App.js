@@ -1,13 +1,13 @@
-import { Login } from './components/auth/Login';
-import { Register } from './components/auth/Register';
-import './App.css';
+// import { Login } from './components/auth/Login';
+// import { Register } from './components/auth/Register';
+// import './App.css';
 
-function App() {
-  return (
-    <div className="App">
+// function App() {
+//   return (
+//     <div className="App">
       
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;

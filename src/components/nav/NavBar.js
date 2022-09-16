@@ -1,35 +1,39 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import "./NavBar.css"
 
 export const NavBar = () => {
+
+    const [isNavExpanded, setIsNavExpanded] = useState(false)
+
     const history = useHistory()
+
     return (
         <ul className="navbar">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/">Go Gal!</Link>
+                <Link className="navbar__link" to="/">go gal!</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/traveltips">Travel Tips</Link>
+                <Link className="navbar__link" to="/traveltips">travel tips</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/trips">My Trips</Link>
+                <Link className="navbar__link" to="/trips">my trips</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/categories">Categories</Link>
+                <Link className="navbar__link" to="/categories">categories</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/mygogals">My Go Gals</Link>
+                <Link className="navbar__link" to="/mygogals">my go gals</Link>
             </li>
             {
                 (localStorage.getItem("gg_token") !== null) ?
-                    <li className="nav-item">
-                        <button className="nav-link fakeLink"
+                    <li className="navbar__item">
+                        <Link className="navbar__link fakeLink"
                             onClick={() => {
                                 localStorage.removeItem("gg_token")
                                 history.push({ pathname: "/" })
                             }}
-                        >Logout</button>
+                        >log out</Link>
                     </li> :
                     <>
                         <li className="nav-item">
