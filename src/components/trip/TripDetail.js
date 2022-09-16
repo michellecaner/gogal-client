@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import { getTripById, deleteTrip, getAllTrips } from "./TripManager";
 import "./TripDetail.css"
-import { useParams, useHistory } from "react-router-dom";
 
 export const TripDetail = () => {
   const [trip, setTrip] = useState({ title: "", image_url_one: "", image_url_two: "", image_url_three: "", country: "", city: "", from_date: "", to_date: "", content: "", categories: "", tags: "" })
@@ -41,6 +41,11 @@ export const TripDetail = () => {
         <p className="trip-categories">{trip.categories.label}</p>
         <p className="trip-tags">{trip.tags.label}</p>
       </div>
+      <button type="button"
+              onClick={() => {
+                history.push(`/trips/edit/${trip.id}`)
+              }}  
+            >Edit</button>
       <button type="button" onClick={() => handleDeleteTrip(trip.id)}>
         Delete
       </button>
