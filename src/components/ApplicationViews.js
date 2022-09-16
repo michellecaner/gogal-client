@@ -5,6 +5,7 @@ import { TripList } from "./trip/TripList"
 import { TripDetail } from "./trip/TripDetail"
 import { TripForm } from "./trip/TripForm"
 import { CategoryList } from "./category/CategoryList"
+import { TipList } from "./tip/TipList"
 
 export const ApplicationViews = () => {
   return <>
@@ -29,6 +30,9 @@ export const ApplicationViews = () => {
            </Route>
            <Route exact path="/categories">
               <CategoryList />
+           </Route>
+           <Route exact path="/traveltips">
+              <TipList />
            </Route>
       </main>
   </>
