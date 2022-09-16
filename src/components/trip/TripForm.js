@@ -167,25 +167,3 @@ export const TripForm = () => {
 
 }
 
-// evt => {
-//   // Prevent form from being submitted
-//   evt.preventDefault()
-
-//   // This is where the front end connects to the back end via naming conventions
-//   const trip = {
-//       title: currentTrip.title,
-//       image_url_one: currentTrip.image_url_one,
-//       image_url_two: currentTrip.image_url_two,
-//       image_url_three: currentTrip.image_url_three,
-//       country: currentTrip.country,
-//       city: currentTrip.city,
-//       from_date: currentTrip.from_date,
-//       to_date: currentTrip.to_date,
-//       content: currentTrip.content
-//   }
-
-//   // Send POST request to your API
-//   createTrip(trip)
-//       .then(() => history.push("/trips"))
-// }}
-// className="btn btn-primary">Create</button>
