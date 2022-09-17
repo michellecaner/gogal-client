@@ -4,15 +4,20 @@ import "./NavBar.css"
 
 export const NavBar = () => {
 
-    const [isNavExpanded, setIsNavExpanded] = useState(false)
-
     const history = useHistory()
 
     return (
-        <ul className="navbar">
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/">go gal!</Link>
-            </li>
+        <nav className="navbar">
+            <div className="navbar__title">
+                <li>
+                    <Link className="navbar__link" to="/">go gal!</Link>
+                </li>
+            </div>
+            <a href="#" className="toggle__button">
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
+            </a>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/traveltips">travel tips</Link>
             </li>
@@ -44,6 +49,6 @@ export const NavBar = () => {
                         </li>
                     </>
             }
-        </ul>
+        </nav>
     )
 }

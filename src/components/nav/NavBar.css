@@ -5,11 +5,11 @@
 }
 
 .navbar {
-  height: 80px;
+  height: 7rem;
   width: 100%;
   display: flex;
   position: relative;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   color: white;
   background-color: black;
@@ -17,33 +17,13 @@
   font-family: 'Meow Script', cursive;
 }
 
-.navbar__link {
+.navbar__title {
   text-decoration: none;
-  color: white;
-  font-size: 2.25rem;
-  margin: .5rem;
-}
-
-.navigation__menu {
-  margin-left: auto;
-}
-
-.navigation__menu ul {
-  margin-top: 1.25rem;
-  padding: 0;
-  display: flex;
-}
-
-.navigation__menu li {
   list-style-type: none;
-  text-align: none;
-  margin: 0 1rem;
-}
-
-.navigation-menu li a {
-  text-decoration: none;
+  font-weight: bold;
   display: block;
-  width: 100%;
+  padding: 1rem;
+  display: block;
 }
 
 .navbar__item {
@@ -53,11 +33,86 @@
   display: block;
 }
 
+.navbar__link {
+  text-decoration: none;
+  color: white;
+  font-size: 2.25rem;
+  display: block;
+}
+
 .navbar__link:hover {
   color: #FF512A;
 }
 
-.hamburger {
+.toggle__button {
+ position: absolute;
+ top: 2.5rem;
+ right: 2rem;
+ display: none;
+ flex-direction: column;
+ justify-content: space-between;
+ width: 30px;
+ height: 21px;
+}
+
+.toggle__button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #FF512A;
+  border-radius: 10px;
+}
+
+@media (max-width: 985px) {
+  .toggle__button {
+    display: flex;
+    transition: 0.4s ease-in;
+  }
+
+  .navbar__item {
+    display: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__item li {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  } 
+
+  .navbar__item li a {
+    padding: .5rem 1rem;
+  } 
+}
+
+/* .navigation__menu {
+  margin-left: auto;
+} */
+
+/* .navigation__menu ul {
+  margin-top: 1.25rem;
+  padding: 0;
+  display: flex;
+} */
+
+/* .navigation__menu li {
+  list-style-type: none;
+  text-align: none;
+  margin: 0 1rem;
+} */
+
+/* .navigation-menu li a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+} */
+
+
+
+/* .hamburger {
   border: 0;
   height: 40px;
   width: 40px;
@@ -71,9 +126,9 @@
   right: 25px;
   transform: translateY(-50%);
   display: none;
-}
+} */
 
-@media screen and (max-width: 893px) {
+/* @media screen and (max-width: 893px) {
   .hamburger {
     display: block;
   }
@@ -108,7 +163,7 @@
   .navigation__menu li:hover {
     color: FF512A;
   }
-}
+} */
 
 /* .navbar ul {
   width: 100%;
@@ -120,6 +175,6 @@
   padding: .5rem 1rem;
 }
 
-.navbar.active {
+/* .navbar.active {
   display: flex;
-}
+} */
