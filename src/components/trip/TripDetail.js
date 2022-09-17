@@ -39,7 +39,7 @@ export const TripDetail = () => {
         <p className="trip-to-date">To Date: {trip.to_date}</p>
         <p className="trip-content">Notes: {trip.content}</p>
         <p className="trip-categories">Categories: {trip.categories.map((data) => {
-          return(data.label)
+          return(`${data.label} `)
         })}</p>
         <p className="trip-tags">{trip.tags.label}</p>
       </div>
