@@ -37,8 +37,10 @@ export const TripDetail = () => {
         <p className="trip-city">City: {trip.city}</p>
         <p className="trip-from-date">From Date: {trip.from_date}</p>
         <p className="trip-to-date">To Date: {trip.to_date}</p>
-        <p className="trip-content">{trip.content}</p>
-        <p className="trip-categories">{trip.categories.label}</p>
+        <p className="trip-content">Notes: {trip.content}</p>
+        <p className="trip-categories">Categories: {trip.categories.map((data) => {
+          return(data.label)
+        })}</p>
         <p className="trip-tags">{trip.tags.label}</p>
       </div>
       <button type="button"
