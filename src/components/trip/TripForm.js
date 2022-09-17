@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { createTrip, getTripById, updateTrip } from './TripManager';
+import { getCategories } from '../category/CategoryManager';
 import "./TripForm.css"
 
 export const TripForm = () => {
@@ -16,9 +17,12 @@ export const TripForm = () => {
     from_date: "",
     to_date: "",
     content: "",
-    categories: [1, 4, 8], 
-    tags: [7, 2, 6]
+    categories: [],
+    tags: []
   })
+
+  const [categories, setCategories] = useState([])
+  const [checkedCategories, setCheckedCategories] = useState([])
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,7 +30,10 @@ export const TripForm = () => {
   const { tripId } = useParams()
 
   useEffect(() => {
+    getCategories().then(setCategories)
+
     console.log("this is the trip id", tripId)
+
     if (tripId) {
       getTripById(parseInt(tripId))
         .then(updatedTrip => {
@@ -42,15 +49,35 @@ export const TripForm = () => {
             to_date: updatedTrip.to_date,
             content: updatedTrip.content,
           })
+          const tripCategories = updateTrip.categories.map(category => parseInt(category.id))
+          setCategories(tripCategories)
           console.log(updatedTrip)
         })
     }
   }, [])
 
+  useEffect(() => {
+    const updatedTrip = { ...currentTrip }
+    updatedTrip.categories = checkedCategories
+    setCurrentTrip(updatedTrip )
+}, [checkedCategories])
 
   const changeTripState = (domEvent) => {
     console.log("you triggered change state")
+
     const newTrip = { ...currentTrip }
+    if (domEvent.target.name.includes("category")) {
+      const currentCategories = [...checkedCategories]
+      if (domEvent.target.checked) {
+          currentCategories.push(parseInt(domEvent.target.value))
+      } else {
+          const index = currentCategories.indexOf(parseInt(domEvent.target.value))
+          currentCategories.splice(index, 1)
+      }
+
+      setCheckedCategories(currentCategories)
+  }
+
     let selectedVal = domEvent.target.value
     if (domEvent.target.id.includes("Id")) {
       selectedVal = parseInt(selectedVal)
@@ -158,10 +185,28 @@ export const TripForm = () => {
           />
         </div>
       </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="categories">Categories: </label>
+          {
+            categories.map(c => {
+              return <div key={c.id} className="categoryCheckbox">
+                <input type="checkbox"
+                  name={`category ${c.id}`}
+                  value={c.id}
+                  checked={checkedCategories.includes(c.id)}
+                  onChange={changeTripState}
+                ></input>
+                <label htmlFor={c.id}> {c.label}</label>
+              </div>
+            })
+          }
+        </div>
+      </fieldset>
       <button type="submit"
-                onClick={handleClickSaveTrip}>
-                  {tripId ? "Submit Changes" : "Create Trip"}
-                </button>
+        onClick={handleClickSaveTrip}>
+        {tripId ? "Submit Changes" : "Create Trip"}
+      </button>
     </form>
   )
 

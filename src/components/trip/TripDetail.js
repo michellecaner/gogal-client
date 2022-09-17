@@ -4,7 +4,7 @@ import { getTripById, deleteTrip, getAllTrips } from "./TripManager";
 import "./TripDetail.css"
 
 export const TripDetail = () => {
-  const [trip, setTrip] = useState({ title: "", image_url_one: "", image_url_two: "", image_url_three: "", country: "", city: "", from_date: "", to_date: "", content: "", categories: "", tags: "" })
+  const [trip, setTrip] = useState({ title: "", image_url_one: "", image_url_two: "", image_url_three: "", country: "", city: "", from_date: "", to_date: "", content: "", categories: [], tags: [] })
   const [isLoading, setIsLoading] = useState(true);
 
   const { tripId } = useParams()
@@ -52,5 +52,3 @@ export const TripDetail = () => {
     </div>
   )
 }
-
-//How do I access categories???
