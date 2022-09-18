@@ -13,42 +13,44 @@ export const NavBar = () => {
                     <Link className="navbar__link" to="/">go gal!</Link>
                 </li>
             </div>
-            <a href="#" className="toggle__button">
-                <span className="bar"></span>
-                <span className="bar"></span>
-                <span className="bar"></span>
-            </a>
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/traveltips">travel tips</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/trips">my trips</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/categories">categories</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/mygogals">my go gals</Link>
-            </li>
-            {
-                (localStorage.getItem("gg_token") !== null) ?
-                    <li className="navbar__item">
-                        <Link className="navbar__link fakeLink"
-                            onClick={() => {
-                                localStorage.removeItem("gg_token")
-                                history.push({ pathname: "/" })
-                            }}
-                        >log out</Link>
-                    </li> :
-                    <>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
-                        </li>
-                    </>
+            <ul className="navbar__menu">
+                <a href="#" className="toggle__button">
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                </a>
+                <li className="navbar__item">
+                    <Link className="navbar__link" to="/traveltips">travel tips</Link>
+                </li>
+                <li className="navbar__item">
+                    <Link className="navbar__link" to="/trips">my trips</Link>
+                </li>
+                <li className="navbar__item">
+                    <Link className="navbar__link" to="/categories">categories</Link>
+                </li>
+                <li className="navbar__item">
+                    <Link className="navbar__link" to="/mygogals">my go gals</Link>
+                </li>
+                {
+                    (localStorage.getItem("gg_token") !== null) ?
+                        <li className="navbar__item">
+                            <Link className="navbar__link fakeLink"
+                                onClick={() => {
+                                    localStorage.removeItem("gg_token")
+                                    history.push({ pathname: "/" })
+                                }}
+                            >log out</Link>
+                        </li> :
+                        <>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/login">Login</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/register">Register</Link>
+                            </li>
+                        </>
             }
+            </ul>
         </nav>
     )
 }
