@@ -77,30 +77,45 @@
     transition: 0.4s ease-in;
   }
 
-  .navbar__item {
+  .navbar :not(.navbar__title) {
+    display: flex;
+    align-items: center;
     display: none;
   }
 
-  .navbar {
+  .navbar__menu {
+    position: fixed;
     flex-direction: column;
-    align-items: flex-start;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
   }
 
-  .navbar__title {
-    padding-top: 5rem;
-    padding-left: 4.25rem;
-  }
-
-  .navbar__item li {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
-  } 
-
-  .navbar__item li a {
-    padding: .5rem 1rem;
-  } 
+  .navbar__item {
+    padding: 1rem;
+  }  
 }
+
+/* .navbar {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navbar__title {
+  padding-top: 5rem;
+  padding-left: 4.25rem;
+}
+
+.navbar__item li {
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+} 
+
+.navbar__item li a {
+  padding: .5rem 1rem;
+}  */
 
 /* .navigation__menu {
   margin-left: auto;

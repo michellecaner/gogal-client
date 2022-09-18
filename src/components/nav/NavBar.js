@@ -13,12 +13,12 @@ export const NavBar = () => {
                     <Link className="navbar__link" to="/">go gal!</Link>
                 </li>
             </div>
+            <a href="#" className="toggle__button">
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+            </a>
             <ul className="navbar__menu">
-                <a href="#" className="toggle__button">
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                </a>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/traveltips">travel tips</Link>
                 </li>
