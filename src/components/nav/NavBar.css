@@ -8,13 +8,14 @@
   height: 7rem;
   width: 100%;
   display: flex;
-  position: relative;
   justify-content: space-evenly;
   align-items: center;
   color: white;
   background-color: black;
   align-items: flex-start;
   font-family: 'Meow Script', cursive;
+  position: sticky;
+  top: 0px;
 }
 
 .navbar__title {
@@ -75,7 +76,7 @@
   border-radius: 50%;
   background-color: FF512A;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
   position: absolute;
   top: 50%;
   right: 25px;
