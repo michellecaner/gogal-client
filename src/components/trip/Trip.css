@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Meow+Script&family=Poppins&display=swap');
 
+.container__cards button {
+  display: flex;
+  align-items: center;
+}
+
 .container__cards {
   display: flex;
   flex-wrap: wrap;
@@ -15,13 +20,41 @@
   width: 30%;
 }
 
-.card__title {
-  font-family: 'Meow Script', cursive;
+.trip__card__title {
+  font-family: 'Poppins', sans-serif;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 2rem;
   background-color: black;
-  color: #FF512A;
+  color: white;
   border-radius: 1px; 
+}
+
+.card__content {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  text-align: center;
+}
+
+.create__trip__btn {
+  padding-top: 0;
+  padding-bottom: 3rem;
+  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .container__cards {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+  }
 }
