@@ -23,7 +23,7 @@ export const TripList = () => {
   // Finally we use .map() to "loop over" the trips array to show a list of animal cards
 
   return (
-    <div className="container-cards">
+    <div className="container__cards">
       
       <button className="btn"
         onClick={() => {
