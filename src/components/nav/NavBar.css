@@ -117,10 +117,6 @@
     padding: 1.5rem 0;
   }
 
-  .navigation__menu li:hover {
-    color: aquamarine;
-  }
-
   .navbar__item {
     padding: 1rem;
   }  
