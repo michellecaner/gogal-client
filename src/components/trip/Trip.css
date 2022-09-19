@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Meow+Script&family=Poppins&display=swap');
 
+
+
 .container__cards button {
   display: flex;
   align-items: center;
+  max-width: 6ch;
 }
 
 .container__cards {
+  padding-top: 5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -40,12 +44,20 @@
 }
 
 .create__trip__btn {
-  padding-top: 0;
+  padding-top: 15rem;
   padding-bottom: 3rem;
-  margin-top: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
+  max-width: 11ch;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 800px) {

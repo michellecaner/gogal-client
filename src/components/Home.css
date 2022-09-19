@@ -14,8 +14,6 @@ html {
 #root {
   background-color: white;
   padding-bottom: 2rem;
-  padding-top: ;
-
 }
 
 .home__page {
@@ -69,10 +67,13 @@ button {
   background-color: #FF512A;
   color: white;
   font-family: 'Meow Script', cursive;
-  /* font-weight: bold; */
   font-size: 2rem;
   cursor: pointer;
   text-decoration: none;
+  max-width: 11ch;
+  max-height: 11ch;
+  line-height: 2rem;
+
 }
 
 button:hover {

@@ -27,7 +27,7 @@ export const TripList = () => {
           onClick={() => {
             history.push({ pathname: `/trips/create` })
           }}
-        >create new trip</button>
+        >create trip</button>
       </div>
       <div className="container__cards">
         {trips.map(trip => <TripCard
