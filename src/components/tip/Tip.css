@@ -16,7 +16,7 @@
   width: 30%;
 }
 
-.card__title {
+.tip__card__title {
   display: block;
   font-family: 'Meow Script', cursive;
   text-align: center;
@@ -24,7 +24,7 @@
   padding-top: 1rem;
   padding-bottom: 2rem;
   background-color: black;
-  color: FF512A;
+  color: #FF512A;
   border-radius: 1px; 
 }
 

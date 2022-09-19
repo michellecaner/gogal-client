@@ -20,20 +20,20 @@ export const TripList = () => {
     getTrips();
   }, [])
 
-  // Finally we use .map() to "loop over" the trips array to show a list of animal cards
-
   return (
-    <div className="container__cards">
-      
-      <button className="btn"
-        onClick={() => {
-          history.push({ pathname: `/trips/create` })
-        }}
-      >Create New Trip</button>
-
-      {trips.map(trip => <TripCard
-        key={trip.id}
-        trip={trip} />)}
-    </div>
+    <>
+      <div className="create__trip__btn">
+        <button
+          onClick={() => {
+            history.push({ pathname: `/trips/create` })
+          }}
+        >create new trip</button>
+      </div>
+      <div className="container__cards">
+        {trips.map(trip => <TripCard
+          key={trip.id}
+          trip={trip} />)}
+      </div>
+    </>
   );
 }
