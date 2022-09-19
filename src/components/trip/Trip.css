@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Meow+Script&family=Poppins&display=swap');
 
-
+.trip__list__page {
+  padding-top: 5rem;
+  
+}
 
 .container__cards button {
   display: flex;
@@ -9,7 +12,7 @@
 }
 
 .container__cards {
-  padding-top: 5rem;
+  margin-top: 1em;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -44,7 +47,7 @@
 }
 
 .create__trip__btn {
-  padding-top: 15rem;
+  padding-top: 14.5rem;
   padding-bottom: 3rem;
   display: flex;
   flex-wrap: wrap;

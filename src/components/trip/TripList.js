@@ -22,6 +22,7 @@ export const TripList = () => {
 
   return (
     <>
+    <div className="trip__list__page">
       <div className="create__trip__btn">
         <button
           onClick={() => {
@@ -33,6 +34,7 @@ export const TripList = () => {
         {trips.map(trip => <TripCard
           key={trip.id}
           trip={trip} />)}
+      </div>
       </div>
     </>
   );
