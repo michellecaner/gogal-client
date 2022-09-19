@@ -18,7 +18,7 @@ export const TipList = () => {
   }, []);
 
   return (
-    <div className="container-cards">
+    <div className="container__cards">
     {tips.map(tip => <TipCard key={tip.id} tip={tip} />)}
   </div>
   );
