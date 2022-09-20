@@ -1,7 +1,7 @@
-#root > .card {
+/* #root > .card {
   max-width: 400px;
   margin: 10px auto;
-}
+} */
 
 .trip-img-wrapper {
   display: flex;
@@ -11,3 +11,4 @@
 .trip-img {
   width: 15rem
 }
+

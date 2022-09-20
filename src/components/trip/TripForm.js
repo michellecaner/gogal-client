@@ -60,8 +60,8 @@ export const TripForm = () => {
   useEffect(() => {
     const updatedTrip = { ...currentTrip }
     updatedTrip.categories = checkedCategories
-    setCurrentTrip(updatedTrip )
-}, [checkedCategories])
+    setCurrentTrip(updatedTrip)
+  }, [checkedCategories])
 
   const changeTripState = (domEvent) => {
     console.log("you triggered change state")
@@ -70,14 +70,14 @@ export const TripForm = () => {
     if (domEvent.target.name.includes("category")) {
       const currentCategories = [...checkedCategories]
       if (domEvent.target.checked) {
-          currentCategories.push(parseInt(domEvent.target.value))
+        currentCategories.push(parseInt(domEvent.target.value))
       } else {
-          const index = currentCategories.indexOf(parseInt(domEvent.target.value))
-          currentCategories.splice(index, 1)
+        const index = currentCategories.indexOf(parseInt(domEvent.target.value))
+        currentCategories.splice(index, 1)
       }
 
       setCheckedCategories(currentCategories)
-  }
+    }
 
     let selectedVal = domEvent.target.value
     if (domEvent.target.id.includes("Id")) {
@@ -103,111 +103,121 @@ export const TripForm = () => {
   }
 
   return (
-    <form className="tripForm">
-      <h2 className="tripForm__title">{tripId ? "Edit Trip" : "Create New Trip"}</h2>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="title">Title: </label>
-          <input type="text" name="title" required autoFocus className="form-control"
-            defaultValue={currentTrip.title}
-            onChange={changeTripState}
-          />
+    <form className="trip__form">
+      <div className="trip__form__title">{tripId ? "edit trip" : "create new trip"}</div>
+      <div className="form__fields">
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="title">Title: </label>
+            <input type="text" name="title" required autoFocus className="form-control"
+              defaultValue={currentTrip.title}
+              onChange={changeTripState}
+            />
+          </div>
+        </fieldset>
+        <div className="form__images">
+          <fieldset>
+            <div className="form-group">
+              <label htmlFor="image_url_one">Image URL #1: </label>
+              <input type="text" name="image_url_one" required autoFocus className="form-control"
+                value={currentTrip.image_url_one}
+                onChange={changeTripState}
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <div className="form-group">
+              <label htmlFor="image_url_two">Image URL #2: </label>
+              <input type="text" name="image_url_two" required autoFocus className="form-control"
+                value={currentTrip.image_url_two}
+                onChange={changeTripState}
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <div className="form-group">
+              <label htmlFor="image_url_three">Image URL #3: </label>
+              <input type="text" name="image_url_three" required autoFocus className="form-control"
+                value={currentTrip.image_url_three}
+                onChange={changeTripState}
+              />
+            </div>
+          </fieldset>
         </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="image_url_one">Image URL #1: </label>
-          <input type="text" name="image_url_one" required autoFocus className="form-control"
-            value={currentTrip.image_url_one}
-            onChange={changeTripState}
-          />
+        <div className="form__location">
+          <fieldset>
+            <div className="form-group">
+              <label htmlFor="country">Country: </label>
+              <input type="text" name="country" required autoFocus className="form-control"
+                value={currentTrip.country}
+                onChange={changeTripState}
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <div className="form-group">
+              <label htmlFor="city">City: </label>
+              <input type="text" name="city" required autoFocus className="form-control"
+                value={currentTrip.city}
+                onChange={changeTripState}
+              />
+            </div>
+          </fieldset>
         </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="image_url_two">Image URL #2: </label>
-          <input type="text" name="image_url_two" required autoFocus className="form-control"
-            value={currentTrip.image_url_two}
-            onChange={changeTripState}
-          />
+        <div className="form__dates">
+          <fieldset>
+            <div className="form-group">
+              <label htmlFor="from_date">From Date: </label>
+              <input type="date" name="from_date" required autoFocus className="form-control"
+                value={currentTrip.from_date}
+                onChange={changeTripState}
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <div className="form-group">
+              <label htmlFor="to_date">To Date: </label>
+              <input type="date" name="to_date" required autoFocus className="form-control"
+                value={currentTrip.to_date}
+                onChange={changeTripState}
+              />
+            </div>
+          </fieldset>
         </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="image_url_three">Image URL #1: </label>
-          <input type="text" name="image_url_three" required autoFocus className="form-control"
-            value={currentTrip.image_url_three}
-            onChange={changeTripState}
-          />
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="content">Notes: </label>
+            <textarea rows="10" cols="30" name="content" required autoFocus className="form-control"
+              value={currentTrip.content}
+              onChange={changeTripState}
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="categories">Categories: </label>
+            {
+              categories.map(c => {
+                return <div key={c.id} className="categoryCheckbox">
+                  <input type="checkbox"
+                    name={`category ${c.id}`}
+                    value={c.id}
+                    checked={checkedCategories.includes(c.id)}
+                    onChange={changeTripState}
+                  ></input>
+                  <label htmlFor={c.id}> {c.label}</label>
+                </div>
+              })
+            }
+          </div>
+        </fieldset>
+        <div className="trip__form__btn">
+        <button className="save__trip__btn" type="submit"
+          onClick={handleClickSaveTrip}>
+          {tripId ? "submit changes" : "create trip"}
+        </button>
         </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="country">Country: </label>
-          <input type="text" name="country" required autoFocus className="form-control"
-            value={currentTrip.country}
-            onChange={changeTripState}
-          />
-        </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="city">City: </label>
-          <input type="text" name="city" required autoFocus className="form-control"
-            value={currentTrip.city}
-            onChange={changeTripState}
-          />
-        </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="from_date">From Date: </label>
-          <input type="date" name="from_date" required autoFocus className="form-control"
-            value={currentTrip.from_date}
-            onChange={changeTripState}
-          />
-        </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="to_date">To Date: </label>
-          <input type="date" name="to_date" required autoFocus className="form-control"
-            value={currentTrip.to_date}
-            onChange={changeTripState}
-          />
-        </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="content">Content: </label>
-          <textarea rows="10" name="content" required autoFocus className="form-control"
-            value={currentTrip.content}
-            onChange={changeTripState}
-          />
-        </div>
-      </fieldset>
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="categories">Categories: </label>
-          {
-            categories.map(c => {
-              return <div key={c.id} className="categoryCheckbox">
-                <input type="checkbox"
-                  name={`category ${c.id}`}
-                  value={c.id}
-                  checked={checkedCategories.includes(c.id)}
-                  onChange={changeTripState}
-                ></input>
-                <label htmlFor={c.id}> {c.label}</label>
-              </div>
-            })
-          }
-        </div>
-      </fieldset>
-      <button type="submit"
-        onClick={handleClickSaveTrip}>
-        {tripId ? "Submit Changes" : "Create Trip"}
-      </button>
+      </div>
     </form>
   )
 
