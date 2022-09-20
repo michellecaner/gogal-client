@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&family=Poppins&display=swap');
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.trip__form {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 10px; 
+  border: black solid 3px;
+  background: white;
+  width: 75%;
+}
+
+.trip__form__title {
+  display: block;
+  font-family: 'Meow Script', cursive;
+  text-align: center;
+  font-size: 2.5rem;
+  padding-left: 0;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  background-color: black;
+  color: #FF512A;
+  border-radius: 1px; 
+}
+
+.form-group, .form__images, 
+.form__location,
+.form__dates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.form__fields {
+  margin: 1rem;
+}
+
+.save__trip__btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  max-width: 6ch;
+}
+
+.trip__form__btn {
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  font-weight: bold;
+}
