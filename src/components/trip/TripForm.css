@@ -11,6 +11,7 @@ main {
   border: black solid 3px;
   background: white;
   width: 75%;
+  margin-top: 2rem;
 }
 
 .trip__form__title {
@@ -34,6 +35,10 @@ main {
   justify-content: space-around;
 }
 
+.form__dates {
+  margin-bottom: 1rem;
+}
+
 .form__fields {
   margin: 1rem;
 }
@@ -49,8 +54,12 @@ main {
 .trip__form__btn {
   display: flex;
   justify-content: center;
+  padding: 1rem;
+
 }
 
-label {
-  font-weight: bold;
+.content__box {
+  font-family: 'Poppins', sans-serif;
+  border-color: #FF512A;
+  margin-bottom: .5rem;
 }

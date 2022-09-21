@@ -108,7 +108,7 @@ export const TripForm = () => {
       <div className="form__fields">
         <fieldset>
           <div className="form-group">
-            <label htmlFor="title">Title: </label>
+            <label htmlFor="title"><b>Title: </b></label>
             <input type="text" name="title" required autoFocus className="form-control"
               defaultValue={currentTrip.title}
               onChange={changeTripState}
@@ -118,7 +118,7 @@ export const TripForm = () => {
         <div className="form__images">
           <fieldset>
             <div className="form-group">
-              <label htmlFor="image_url_one">Image URL #1: </label>
+              <label htmlFor="image_url_one"><b>Image URL #1: </b></label>
               <input type="text" name="image_url_one" required autoFocus className="form-control"
                 value={currentTrip.image_url_one}
                 onChange={changeTripState}
@@ -127,7 +127,7 @@ export const TripForm = () => {
           </fieldset>
           <fieldset>
             <div className="form-group">
-              <label htmlFor="image_url_two">Image URL #2: </label>
+              <label htmlFor="image_url_two"><b>Image URL #2: </b></label>
               <input type="text" name="image_url_two" required autoFocus className="form-control"
                 value={currentTrip.image_url_two}
                 onChange={changeTripState}
@@ -136,7 +136,7 @@ export const TripForm = () => {
           </fieldset>
           <fieldset>
             <div className="form-group">
-              <label htmlFor="image_url_three">Image URL #3: </label>
+              <label htmlFor="image_url_three"><b>Image URL #3: </b></label>
               <input type="text" name="image_url_three" required autoFocus className="form-control"
                 value={currentTrip.image_url_three}
                 onChange={changeTripState}
@@ -147,7 +147,7 @@ export const TripForm = () => {
         <div className="form__location">
           <fieldset>
             <div className="form-group">
-              <label htmlFor="country">Country: </label>
+              <label htmlFor="country"><b>Country: </b></label>
               <input type="text" name="country" required autoFocus className="form-control"
                 value={currentTrip.country}
                 onChange={changeTripState}
@@ -156,7 +156,7 @@ export const TripForm = () => {
           </fieldset>
           <fieldset>
             <div className="form-group">
-              <label htmlFor="city">City: </label>
+              <label htmlFor="city"><b>City: </b></label>
               <input type="text" name="city" required autoFocus className="form-control"
                 value={currentTrip.city}
                 onChange={changeTripState}
@@ -167,7 +167,7 @@ export const TripForm = () => {
         <div className="form__dates">
           <fieldset>
             <div className="form-group">
-              <label htmlFor="from_date">From Date: </label>
+              <label htmlFor="from_date"><b>From Date: </b></label>
               <input type="date" name="from_date" required autoFocus className="form-control"
                 value={currentTrip.from_date}
                 onChange={changeTripState}
@@ -176,7 +176,7 @@ export const TripForm = () => {
           </fieldset>
           <fieldset>
             <div className="form-group">
-              <label htmlFor="to_date">To Date: </label>
+              <label htmlFor="to_date"><b>To Date: </b></label>
               <input type="date" name="to_date" required autoFocus className="form-control"
                 value={currentTrip.to_date}
                 onChange={changeTripState}
@@ -186,7 +186,7 @@ export const TripForm = () => {
         </div>
         <fieldset>
           <div className="form-group">
-            <label htmlFor="content">Notes: </label>
+            <label htmlFor="content"><b>Notes: </b></label>
             <textarea rows="10" cols="125" name="content" required autoFocus className="content__box"
               value={currentTrip.content}
               onChange={changeTripState}
@@ -195,11 +195,12 @@ export const TripForm = () => {
         </fieldset>
         <fieldset>
           <div className="form-group">
-            <label htmlFor="categories">Categories: </label>
+            <label htmlFor="categories"><b>Categories: </b></label>
             {
               categories.map(c => {
                 return <div key={c.id} className="categoryCheckbox">
                   <input type="checkbox"
+                    className="checkbox"
                     name={`category ${c.id}`}
                     value={c.id}
                     checked={checkedCategories.includes(c.id)}

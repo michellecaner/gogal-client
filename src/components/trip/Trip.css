@@ -2,7 +2,7 @@
 
 .trip__list__page {
   padding-top: 5rem;
-  
+  display: flex;
 }
 
 .container__cards button {
@@ -12,7 +12,7 @@
 }
 
 .container__cards {
-  margin-top: 1em;
+  padding-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -31,8 +31,7 @@
   font-family: 'Poppins', sans-serif;
   text-align: center;
   font-size: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding: 1.25rem;
   background-color: black;
   color: white;
   border-radius: 1px; 
@@ -47,14 +46,14 @@
 }
 
 .create__trip__btn {
-  padding-top: 14.5rem;
+  padding-top: 10rem;
   padding-bottom: 3rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
   max-width: 11ch;
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   position: absolute;
   top: 10%;

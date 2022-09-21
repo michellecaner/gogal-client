@@ -30,31 +30,6 @@ html {
   justify-content: space-evenly;
 }
 
-/* .welcome {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  font-size: larger;
-  padding-bottom: 1rem;
-  margin-top: .5rem;
-  margin: 2rem;
-  margin-bottom: .5rem;
-  border-radius: 20px;
-  height: 100px;
-  justify-content: space-evenly;
-} */
-
-/* p {
-  margin: 0;
-}
-
-h3 {
-  font-size: larger;
-  font-weight: bolder;
-  margin-bottom: .5rem;
-} */
-
 button {
   display: flex;
   flex-wrap: wrap;

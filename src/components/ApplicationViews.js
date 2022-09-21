@@ -9,10 +9,7 @@ import { TipList } from "./tip/TipList"
 
 export const ApplicationViews = () => {
   return <>
-      <main style={{
-          margin: "5rem 2rem",
-          lineHeight: "1.75rem"
-      }}>
+      <main>
            <Route exact path={["/"]}>
               <Home />
            </Route>
