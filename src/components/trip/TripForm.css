@@ -11,7 +11,6 @@ main {
   border: black solid 3px;
   background: white;
   width: 75%;
-
 }
 
 .trip__form__title {
@@ -34,10 +33,6 @@ main {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
-/* .content__box {
-  white-space: pre-wrap;
-} */
 
 .form__fields {
   margin: 1rem;
