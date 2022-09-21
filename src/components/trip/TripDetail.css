@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Meow+Script&family=Poppins&display=swap');
 
+
+
 .trip-details-container {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 10px; 
   border: black solid 3px;
   background: white;
-  width: 75%;
+  width: 80%;
+  margin-top: 2rem;
 }
 
 .trip-title {
@@ -14,6 +17,7 @@
   font-size: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 2rem;
+  padding-left: .25rem;
   background-color: black;
   color: white;
   border-radius: 1px; 
@@ -24,6 +28,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 1rem;
+  gap: 20px;
 }
 
 .trip-img {
@@ -34,6 +39,11 @@
 .trip-content {
   white-space: pre-wrap;
   word-wrap: break-word;
+  border: #FF512A solid 3px;
+  background-color: rgba(255, 81, 42, 0.1);
+  border-radius: 10px;
+  line-height: normal;
+  padding: 1rem;
 }
 
 .trip-details  {
@@ -43,19 +53,22 @@
 .trip__location__and__dates {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .trip-city {
-  display: flex;
-  flex-wrap: wrap;
   max-width: 30%;
+  justify-content: center;
+
 }
+
+/* .trip-categories {
+
+} */
 
 .edit__trip__btn,
 .delete__trip__button {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   text-align: center;
   max-width: 6ch;

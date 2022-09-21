@@ -34,29 +34,48 @@ export const TripDetail = () => {
       </div>
       <div className="trip-details">
         <div className="trip__location__and__dates">
-          <p className="trip-country">Country: {trip.country}</p>
-          <p className="trip-city">City: {trip.city}</p>
-          <p className="trip-from-date">From Date: {trip.from_date}</p>
-          <p className="trip-to-date">To Date: {trip.to_date}</p>
-          </div>
-          <p className="trip-content">Notes: {trip.content}</p>
-          <p className="trip-categories">Categories: {trip.categories.map((data) => {
-            return (`${data.label} `)
-          })}</p>
-          <p className="trip-tags">{trip.tags.label}</p>
+          <p className="trip-country">
+            <b>Country: </b> 
+            <br></br>
+            {trip.country}</p>
+          <p className="trip-city">
+            <b>Cities: </b>
+            <br></br>
+            {trip.city}</p>
+          <p className="trip-from-date">
+            <b>From Date: </b>
+            <br></br>
+            {trip.from_date}</p>
+          <p className="trip-to-date">
+            <b>To Date: </b>
+            <br></br>
+            {trip.to_date}</p>
         </div>
-        <div className="trip__details__btn">
-          <button className="edit__trip__button"
-            type="button"
-            onClick={() => {
-              history.push(`/trips/edit/${trip.id}`)
-            }}
-          >edit</button>
-          <button className="delete__trip__button"
-            type="button" onClick={() => handleDeleteTrip(trip.id)}>
-            delete
-          </button>
-        </div>
+        <p className="trip-content">
+          <b>Notes: </b>
+          <br></br>
+          {trip.content}</p>
+        <div className="trip-categories">
+          <b>Categories: </b>
+          <br></br>
+          {trip.categories.map((data) => {
+          return (`• ${data.label} `)
+        })}</div>
+        <p className="trip-tags">
+          {trip.tags.label}</p>
       </div>
-      )
+      <div className="trip__details__btn">
+        <button className="edit__trip__button"
+          type="button"
+          onClick={() => {
+            history.push(`/trips/edit/${trip.id}`)
+          }}
+        >edit</button>
+        <button className="delete__trip__button"
+          type="button" onClick={() => handleDeleteTrip(trip.id)}>
+          delete
+        </button>
+      </div>
+    </div>
+  )
 }

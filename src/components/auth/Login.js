@@ -40,23 +40,27 @@ export const Login = () => {
               <div>Username or password was not valid.</div>
               <button className="button--close" onClick={e => invalidDialog.current.close()}>Close</button>
           </dialog>
-          <section>
+          <section className="login__form__section">
               <form className="form--login" onSubmit={handleLogin}>
-                  <h1>Go Gal</h1>
-                  <h2>Please sign in</h2>
-                  <fieldset>
-                      <label htmlFor="inputUsername"> Username </label>
-                      <input ref={username} type="username" id="username" className="form-control" placeholder="Username" required autoFocus />
+                <div className="login__title">
+                  <div>go gal!</div>
+                  <p>please sign in</p>
+                  </div>
+                  <fieldset className="user__name">
+                      <label htmlFor="inputUsername"> Username: </label>
+                      <input ref={username} type="username" id="username" className="form-control" placeholder="Enter username..." required autoFocus />
                   </fieldset>
                   <fieldset>
-                      <label htmlFor="inputPassword"> Password </label>
-                      <input ref={password} type="password" id="password" className="form-control" placeholder="Password" required />
+                      <label htmlFor="inputPassword"> Password: </label>
+                      <input ref={password} type="password" id="password" className="form-control" placeholder="Enter password..." required />
                   </fieldset>
-                  <fieldset style={{
+                  <fieldset className="sign__in__btn__container" 
+                    style={{
                       textAlign: "center"
                   }}>
-                      <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
+                      <button className="sign__in__btn" type="submit">sign in</button>
                   </fieldset>
+                  
               </form>
           </section>
           <section className="link--register">
