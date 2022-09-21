@@ -12,3 +12,7 @@
   width: 15rem
 }
 
+.trip-content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
