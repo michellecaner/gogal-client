@@ -187,7 +187,7 @@ export const TripForm = () => {
         <fieldset>
           <div className="form-group">
             <label htmlFor="content">Notes: </label>
-            <textarea rows="10" cols="30" name="content" required autoFocus className="form-control"
+            <textarea rows="10" cols="125" name="content" required autoFocus className="content__box"
               value={currentTrip.content}
               onChange={changeTripState}
             />
