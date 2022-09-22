@@ -51,14 +51,16 @@
   margin: 2rem;
 }
 
-.trip__location__and__dates {
+.trip__locations, 
+.trip__dates {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  text-align: center;
 }
 
 .trip-city {
-  max-width: 30%;
+  max-width: 50%;
   justify-content: center;
 
 }

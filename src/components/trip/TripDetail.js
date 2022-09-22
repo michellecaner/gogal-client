@@ -33,7 +33,7 @@ export const TripDetail = () => {
         <img className="trip-img" src={trip.image_url_three} />
       </div>
       <div className="trip-details">
-        <div className="trip__location__and__dates">
+        <div className="trip__locations">
           <p className="trip-country">
             <b>Country: </b> 
             <br></br>
@@ -42,6 +42,8 @@ export const TripDetail = () => {
             <b>Cities: </b>
             <br></br>
             {trip.city}</p>
+            </div>
+            <div className="trip__dates">
           <p className="trip-from-date">
             <b>From Date: </b>
             <br></br>
