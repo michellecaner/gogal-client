@@ -43,7 +43,7 @@ export const Login = () => {
           <section className="login__form__section">
               <form className="form--login" onSubmit={handleLogin}>
                 <div className="login__title">
-                  <div>go gal!</div>
+                  <div className="gogal__title">go gal!</div>
                   <p>please sign in</p>
                   </div>
                   <fieldset className="user__name">
