@@ -18,16 +18,19 @@ html {
 
 .home__page {
   padding: 1rem;
+  margin: 3rem;
   border: 5px solid;
   border-color: #FF512A;
-  border-radius: 30px;
+  border-radius: 50%;
+  min-width: 30rem;
   font-family: 'Poppins', sans-serif;
   background-color: white;
-  min-height: 40rem;
+  min-height: 30rem;
   justify-content: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  text-align: center;
 }
 
 button {
