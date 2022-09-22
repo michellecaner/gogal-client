@@ -6,11 +6,25 @@
   height: 50rem;
 }
 
+.register__form__section {
+  text-align: center;
+  justify-content: center;
+}
+
+.reg__form__wo__btn {
+  margin-left: 1.5rem;
+}
+
 fieldset {
   min-width: 0;
   margin: 0;
   border: 0;
   font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+input, textarea {
+  text-align: center;
 }
 
 .form--login > fieldset > input[type="username"],
@@ -20,7 +34,8 @@ fieldset {
   font-family: 'Poppins', sans-serif;
 }
 
-.login__title {
+.login__title, 
+.register__title {
   display: block;
   font-family: 'Meow Script', cursive;
   text-align: center;
@@ -79,11 +94,16 @@ fieldset {
   width: 75%;
   margin: 2rem;
   text-align: center;
-
+  flex-direction: column;
 }
 
 .sign__in__btn__container {
   padding-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.reg__btn__container {
   display: flex;
   justify-content: center;
 }
@@ -96,6 +116,21 @@ fieldset {
   max-width: 5.5ch;
 }
 
+.reg__link__container  {
+  text-align: center;
+}
+
+.reg__btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  max-width: 5ch;
+  font-size: 1.5rem;
+}
+
 .link--register {
   font-family: 'Poppins', sans-serif;
+  text-align: center;
+  
 }

@@ -56,49 +56,56 @@ export const Register = () => {
                 <button className="button--close" onClick={e => passwordDialog.current.close()}>Close</button>
             </dialog>
 
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Register an account</h1>
-                <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputEmail"> Email </label>
-                    <input ref={email} type="text" name="email" className="form-control" placeholder="Email" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputUsername">Username</label>
-                    <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputPassword"> Password </label>
-                    <input ref={password} type="password" name="password" className="form-control" placeholder="Password" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="verifyPassword"> Verify Password </label>
-                    <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputBio"> Input Bio </label>
-                    <textarea ref={bio} name="bio" className="form-control" placeholder="Let other Go Gals know a little bit about you..." />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="inputImage"> Input Profile Image </label>
-                    <textarea ref={profileImgUrl} name="profileImgUrl" className="form-control" placeholder="Link to profile photo" />
-                </fieldset>
-                <fieldset style={{
-                    textAlign: "center"
-                }}>
-                    <button className="btn btn-1 btn-sep icon-send" type="submit">register</button>
-                </fieldset>
-            </form>
-            <section className="link--register">
-                Already registered? <Link to="/login">Login</Link>
-            </section>
+            <div className="register__form__section">
+                <div className="reg__form__wo__btn">
+                    <form className="form--login" onSubmit={handleRegister}>
+                        <div className="register__title">register an account</div>
+                        <fieldset>
+                            <label htmlFor="firstName"> First Name </label>
+                            <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
+                        </fieldset>
+                        <fieldset>
+                            <label htmlFor="lastName"> Last Name </label>
+                            <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
+                        </fieldset>
+                        <fieldset>
+                            <label htmlFor="inputEmail"> Email </label>
+                            <input ref={email} type="text" name="email" className="form-control" placeholder="Email" required />
+                        </fieldset>
+                        <fieldset>
+                            <label htmlFor="inputUsername">Username</label>
+                            <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
+                        </fieldset>
+                        <fieldset>
+                            <label htmlFor="inputPassword"> Password </label>
+                            <input ref={password} type="password" name="password" className="form-control" placeholder="Password" required />
+                        </fieldset>
+                        <fieldset>
+                            <label htmlFor="verifyPassword"> Verify Password </label>
+                            <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
+                        </fieldset>
+                        <fieldset>
+                            <label htmlFor="inputBio"> Input Bio </label>
+                            <textarea ref={bio} name="bio" className="form-control" placeholder="Let other Go Gals know a little bit about you..." />
+                        </fieldset>
+                        <fieldset>
+                            <label htmlFor="inputImage"> Input Profile Image </label>
+                            <textarea ref={profileImgUrl} name="profileImgUrl" className="form-control" placeholder="Link to profile photo" />
+                        </fieldset>
+                        <fieldset className="reg__btn__container"
+                            style={{
+                                textAlign: "center"
+                            }}>
+                            <button className="reg__btn" type="submit">register</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div className="reg__link__container">
+                    <section className="link--register">
+                        Already registered? <Link to="/login">Login</Link>
+                    </section>
+                </div>
+            </div>
         </main>
     )
 }
