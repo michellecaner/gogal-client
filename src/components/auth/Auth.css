@@ -32,6 +32,10 @@ fieldset {
   border-radius: 1px; 
 }
 
+.gogal__title {
+  font-weight: bold;
+}
+
 .label--login {
   width: 8rem;
   display: inline-block;
