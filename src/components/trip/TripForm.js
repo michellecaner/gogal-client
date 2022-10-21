@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { createTrip, getTripById, updateTrip } from './TripManager';
 import { getCategories } from '../category/CategoryManager';
+import { getTags } from '../tag/TagManager';
 import "./TripForm.css"
 
 export const TripForm = () => {
@@ -24,6 +25,9 @@ export const TripForm = () => {
   const [categories, setCategories] = useState([])
   const [checkedCategories, setCheckedCategories] = useState([])
 
+  const [tags, setTags] = useState([])
+  const [checkedTags, setCheckedTags] = useState([])
+
   const [isLoading, setIsLoading] = useState(false);
 
   const history = useHistory()
@@ -31,6 +35,7 @@ export const TripForm = () => {
 
   useEffect(() => {
     getCategories().then(setCategories)
+    getTags().then(setTags)
 
     console.log("this is the trip id", tripId)
 
@@ -48,10 +53,15 @@ export const TripForm = () => {
             from_date: updatedTrip.from_date,
             to_date: updatedTrip.to_date,
             content: updatedTrip.content,
-            categories: updatedTrip.categories
+            categories: updatedTrip.categories,
+            tags: updatedTrip.tags
           })
+
           const tripCategories = updatedTrip.categories.map(category => parseInt(category.id))
           setCheckedCategories(tripCategories)
+
+          const tripTags = updateTrip.tags.map(tag => parseInt(tag.id))
+          setCheckedTags(tripTags)
           console.log(updatedTrip)
         })
     }
@@ -62,6 +72,12 @@ export const TripForm = () => {
     updatedTrip.categories = checkedCategories
     setCurrentTrip(updatedTrip)
   }, [checkedCategories])
+
+  useEffect(() => {
+    const updatedTrip = { ...currentTrip }
+    updatedTrip.tags = checkedTags
+    setCurrentTrip(updatedTrip)
+  }, [checkedTags])
 
   const changeTripState = (domEvent) => {
     console.log("you triggered change state")
@@ -77,6 +93,18 @@ export const TripForm = () => {
       }
 
       setCheckedCategories(currentCategories)
+    }
+
+    if (domEvent.target.name.includes("tag")) {
+      const currentTags = [...checkedTags]
+      if (domEvent.target.checked) {
+        currentTags.push(parseInt(domEvent.target.value))
+      } else {
+        const index = currentTags.indexOf(parseInt(domEvent.target.value))
+        currentTags.splice(index, 1)
+      }
+
+      setCheckedTags(currentTags)
     }
 
     let selectedVal = domEvent.target.value
@@ -207,6 +235,25 @@ export const TripForm = () => {
                     onChange={changeTripState}
                   ></input>
                   <label htmlFor={c.id}> {c.label}</label>
+                </div>
+              })
+            }
+          </div>
+        </fieldset>
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="tags"><b>Tags: </b></label>
+            {
+              tags.map(t => {
+                return <div key={t.id} className="tagCheckbox">
+                  <input type="checkbox"
+                    className="checkbox"
+                    name={`tag ${t.id}`}
+                    value={t.id}
+                    checked={checkedTags.includes(t.id)}
+                    onChange={changeTripState}
+                  ></input>
+                  <label htmlFor={t.id}> {t.label}</label>
                 </div>
               })
             }
