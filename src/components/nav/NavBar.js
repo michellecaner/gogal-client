@@ -47,6 +47,9 @@ export const NavBar = () => {
                         <Link className="navbar__link" to="/categories">categories</Link>
                     </li>
                     <li className="navbar__item">
+                        <Link className="navbar__link" to="/tags">tags</Link>
+                    </li>
+                    <li className="navbar__item">
                         <Link className="navbar__link" to="/mygogals">my go gals</Link>
                     </li>
                     {
