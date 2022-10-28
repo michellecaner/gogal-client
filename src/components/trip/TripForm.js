@@ -60,7 +60,7 @@ export const TripForm = () => {
           const tripCategories = updatedTrip.categories.map(category => parseInt(category.id))
           setCheckedCategories(tripCategories)
 
-          const tripTags = updateTrip.tags.map(tag => parseInt(tag.id))
+          const tripTags = updatedTrip.tags.map(tag => parseInt(tag.id))
           setCheckedTags(tripTags)
           console.log(updatedTrip)
         })

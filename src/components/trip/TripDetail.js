@@ -35,15 +35,15 @@ export const TripDetail = () => {
       <div className="trip-details">
         <div className="trip__locations">
           <p className="trip-country">
-            <b>Country: </b> 
+            <b>Country: </b>
             <br></br>
             {trip.country}</p>
           <p className="trip-city">
             <b>Cities: </b>
             <br></br>
             {trip.city}</p>
-            </div>
-            <div className="trip__dates">
+        </div>
+        <div className="trip__dates">
           <p className="trip-from-date">
             <b>From Date: </b>
             <br></br>
@@ -61,10 +61,15 @@ export const TripDetail = () => {
           <b>Categories: </b>
           <br></br>
           {trip.categories.map((data) => {
-          return (`• ${data.label} `)
+            return (`• ${data.label} `)
         })}</div>
-        <p className="trip-tags">
-          {trip.tags.label}</p>
+        <div className="trip-tags">
+          <b>Tags:  </b>
+          <br></br>
+          {trip.tags.map((data) => {
+            return (`• ${data.label} `)
+        })}
+        </div>
       </div>
       <div className="trip__details__btn">
         <button className="edit__trip__button"
